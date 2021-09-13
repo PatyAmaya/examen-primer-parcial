@@ -1,10 +1,6 @@
 package uaslp.enginering.exam;
 
-import uaslp.enginering.exam.model.Guest;
-import uaslp.enginering.exam.model.Hotel;
-import uaslp.enginering.exam.model.Reservation;
-import uaslp.enginering.exam.model.Room;
-import uaslp.enginering.exam.model.RoomStatus;
+import uaslp.enginering.exam.model.*;
 
 import java.util.ArrayList;
 
@@ -51,6 +47,11 @@ public class Main {
         hotel.addRoom(new Room(204, "2-BED-QUEEN", RoomStatus.CLEAN));
         hotel.addRoom(new Room(205, "2-BED-QUEEN", RoomStatus.DIRTY));
 
+        hotel.addPool(new Pool());
+        hotel.addPool(new Pool());
+
+        hotel.addGym(new Gym());
+
         return hotel;
     }
 
@@ -60,8 +61,12 @@ public class Main {
         System.out.println(hotel.getName() + " - Hotel information");
 
         ArrayList<Room> rooms = hotel.getRooms();
+        ArrayList<Pool> pools = hotel.getPools();
+        ArrayList<Gym> gyms = hotel.getGyms();
 
         System.out.println("Total rooms: " + rooms.size());
+        System.out.println("Total pools: " + pools.size());
+        System.out.println("Total gyms: " + gyms.size());
         System.out.println();
         System.out.println("Room statuses");
         for (Room room : rooms) {
